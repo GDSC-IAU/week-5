@@ -27,7 +27,7 @@ This week we will be learning about how to use the pub.dev website to find packa
 
 ## Project Overview
 
-This week we will be creating a new E-Commerce app. We will be using the `BottomNavigationBar` widget to navigate between pages in our app. We will also be using the `MaterialPageRoute` widget to navigate between pages in our app that we can't reach with the navigation bar. 
+This week we will be creating a new E-Commerce app. We will be using the `BottomNavigationBar` widget to navigate between pages in our app. We will also be using the `MaterialPageRoute` widget to navigate between pages in our app that we can't reach with the navigation bar.
 
 ## Important Concepts
 
