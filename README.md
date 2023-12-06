@@ -6,11 +6,12 @@ This week we will be learning about how to use the pub.dev website to find packa
 
 ## Objectives
 
-- Learn how to use the pub.dev website to find packages that we can use in our apps
-- Learn how to navigate between pages in our apps
-- Learn how to use the `Navigator` widget to navigate between pages
-- Learn how to use the `MaterialPageRoute` widget to navigate between pages
-- Learn how to use the `Navigator.push` method to navigate between pages
+- Learn how to use the pub.dev website to find packages that we can use in our apps.
+- Learn how to navigate between pages in our apps.
+- Learn how to use the `Navigator` widget to navigate between pages.
+- Learn how to add Routes to the materialApp in order to navigate using paths instead.
+- Learn how to use the `BottomNavigationBar` widget to navigate between pages.
+- Learn how to use the `Navigator.push` method to navigate between pages.
 
 ## Resources
 
@@ -26,7 +27,7 @@ This week we will be learning about how to use the pub.dev website to find packa
 
 ## Project Overview
 
-This week we will be creating a new E-Commerce app. We will be using the `Navigator` widget to navigate between pages in our app. We will also be using the `MaterialPageRoute` widget to navigate between pages in our app. We will also be using the `Navigator.push` method to navigate between pages in our app.
+This week we will be creating a new E-Commerce app. We will be using the `BottomNavigationBar` widget to navigate between pages in our app. We will also be using the `MaterialPageRoute` widget to navigate between pages in our app that we can't reach with the navigation bar. 
 
 ## Important Concepts
 
