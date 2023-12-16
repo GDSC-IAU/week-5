@@ -22,17 +22,19 @@ class MainApp extends StatelessWidget {
   }
 
   ThemeData getTheme() {
-    ThemeData themeData = ThemeData();
+    ThemeData themeData = ThemeData.light();
     return themeData.copyWith(
       scaffoldBackgroundColor: AppColors.background,
       primaryColor: AppColors.primary,
       colorScheme: themeData.colorScheme.copyWith(
-        secondary: AppColors.secondary,
+        primary: AppColors.secondary,
       ),
       bottomNavigationBarTheme: themeData.bottomNavigationBarTheme.copyWith(
-        selectedItemColor: AppColors.secondary,
         unselectedItemColor: AppColors.primary,
       ),
-     );
+      textSelectionTheme: const TextSelectionThemeData(
+        cursorColor: AppColors.primary,
+      ),
+    );
   }
 }

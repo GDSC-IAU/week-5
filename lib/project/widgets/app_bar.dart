@@ -15,16 +15,20 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       elevation: 0,
       backgroundColor: AppColors.background,
-      actions: const [
+      actions: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Icon(Icons.shopping_cart_outlined),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: IconButton(
+            icon: const Icon(Icons.shopping_cart_outlined),
+            onPressed: () {},
+          ),
         )
       ],
       title: Text(
         title,
         style: const TextStyle(
-          fontWeight: FontWeight.bold,
+          fontSize: 20,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );
