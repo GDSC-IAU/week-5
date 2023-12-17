@@ -26,59 +26,63 @@ class ProductCard extends StatelessWidget {
       ),
       width: 170,
       height: 250,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Stack(
         children: [
-          Container(
-            alignment: Alignment.center,
-            height: 100,
-            padding: const EdgeInsets.all(10.0),
-            child: Image.asset(
-              product.image,
-            ),
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            product.title,
-            textAlign: TextAlign.left,
-            style: const TextStyle(
-              fontWeight: FontWeight.w600,
-              letterSpacing: 0.1,
-            ),
-          ),
-          Text(
-            '${product.weight}${product.weightUnit.prefix}',
-            textAlign: TextAlign.left,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontWeight: FontWeight.bold,
-              fontSize: 12,
-              letterSpacing: 0.1,
-            ),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "\$${product.price.toStringAsFixed(2)}",
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              Container(
+                alignment: Alignment.center,
+                height: 100,
+                padding: const EdgeInsets.all(10.0),
+                child: Image.asset(
+                  product.image,
                 ),
               ),
-              CircleAvatar(
-                backgroundColor: AppColors.secondary.withOpacity(0.7),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.add),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(
+                product.title,
+                textAlign: TextAlign.left,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 0.1,
                 ),
-              )
+              ),
+              Text(
+                '${product.weight}${product.weightUnit.prefix}',
+                textAlign: TextAlign.left,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12,
+                  letterSpacing: 0.1,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "\$${product.price.toStringAsFixed(2)}",
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  CircleAvatar(
+                    backgroundColor: AppColors.secondary.withOpacity(0.7),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.add),
+                    ),
+                  )
+                ],
+              ),
             ],
           ),
         ],

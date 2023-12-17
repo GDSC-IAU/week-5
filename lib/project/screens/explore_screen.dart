@@ -1,16 +1,19 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shopping_app/project/common/colors.dart';
 import 'package:shopping_app/project/models/product_model.dart';
+import 'package:shopping_app/project/providers/product_provider.dart';
 import 'package:shopping_app/project/widgets/app_bar.dart';
 import 'package:shopping_app/project/widgets/product_card.dart';
 
-class ExploreScreen extends StatelessWidget {
+class ExploreScreen extends ConsumerWidget {
   const ExploreScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final provider = ref.watch(productsProvider.notifier);
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'Explore Products',
@@ -31,7 +34,7 @@ class ExploreScreen extends StatelessWidget {
               _buildSection(
                 title: 'Exclusive Offer',
                 route: '/category/offers',
-                products: products,
+                products: provider.getCategory(ProductCategory.exclusive),
               ),
               const SizedBox(
                 height: 5,
@@ -39,32 +42,22 @@ class ExploreScreen extends StatelessWidget {
               _buildSection(
                 title: 'Fruits',
                 route: '/category/fruits',
-                products: products
-                    .where((element) =>
-                        element.categories.contains(ProductCategory.fruits))
-                    .toList(),
+                products: provider.getCategory(ProductCategory.fruits),
               ),
               const SizedBox(
                 height: 5,
               ),
               _buildSection(
-                title: 'Vegetables',
-                route: '/category/vegetables',
-                products: products
-                    .where((element) =>
-                        element.categories.contains(ProductCategory.vegetables))
-                    .toList(),
-              ),
+                  title: 'Vegetables',
+                  route: '/category/vegetables',
+                  products: provider.getCategory(ProductCategory.vegetables)),
               const SizedBox(
                 height: 5,
               ),
               _buildSection(
                 title: 'Beverages',
                 route: '/category/beverages',
-                products: products
-                    .where((element) =>
-                        element.categories.contains(ProductCategory.beverages))
-                    .toList(),
+                products: provider.getCategory(ProductCategory.beverages),
               )
             ],
           ),
@@ -127,51 +120,53 @@ class ExploreScreen extends StatelessWidget {
     required List<Product> products,
     int minimum = 4,
   }) {
-    return SizedBox(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
+    return products.isEmpty
+        ? const SizedBox()
+        : SizedBox(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    TextButton(
+                      style: const ButtonStyle(
+                        animationDuration: Duration(milliseconds: 0),
+                        splashFactory: NoSplash.splashFactory,
+                      ),
+                      onPressed: () {},
+                      child: const Text(
+                        'See all',
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              TextButton(
-                style: const ButtonStyle(
-                  animationDuration: Duration(milliseconds: 0),
-                  splashFactory: NoSplash.splashFactory,
+                const SizedBox(
+                  height: 20,
                 ),
-                onPressed: () {},
-                child: const Text(
-                  'See all',
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          SizedBox(
-            height: 250,
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (_, index) => ProductCard(
-                  product: products[index],
-                  isFirst: index == 0,
-                ),
-                shrinkWrap: true,
-                itemCount: min(minimum, products.length),
-              ),
+                SizedBox(
+                  height: 250,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (_, index) => ProductCard(
+                        product: products[index],
+                        isFirst: index == 0,
+                      ),
+                      shrinkWrap: true,
+                      itemCount: min(minimum, products.length),
+                    ),
+                  ),
+                )
+              ],
             ),
-          )
-        ],
-      ),
-    );
+          );
   }
 }
