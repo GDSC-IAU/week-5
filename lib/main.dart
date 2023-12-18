@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shopping_app/project/common/colors.dart';
 import 'package:shopping_app/project/providers/product_provider.dart';
+import 'package:shopping_app/project/screens/category_screen.dart';
 import 'package:shopping_app/project/screens/main_screen.dart';
 
 void main() {
@@ -37,6 +38,7 @@ class MainApp extends ConsumerWidget {
       theme: getTheme(),
       routes: {
         "/main": (_) => const MainScreen(),
+        "/category": (_) => const CategoryScreen()
       },
     );
   }

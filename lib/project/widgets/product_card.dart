@@ -40,9 +40,7 @@ class ProductCard extends StatelessWidget {
                   product.image,
                 ),
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              const Spacer(),
               Text(
                 product.title,
                 textAlign: TextAlign.left,

@@ -14,6 +14,8 @@ class ExploreScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final provider = ref.watch(productsProvider.notifier);
+    final selectProvider = ref.read(categoryMenuProvider.notifier);
+
     return Scaffold(
       appBar: const CustomAppBar(
         title: 'Explore Products',
@@ -32,32 +34,46 @@ class ExploreScreen extends ConsumerWidget {
                 height: 5,
               ),
               _buildSection(
+                context: context,
                 title: 'Exclusive Offer',
                 route: '/category/offers',
-                products: provider.getCategory(ProductCategory.exclusive),
+                products: provider,
+                controller: selectProvider,
+                category: ProductCategory.exclusive,
               ),
               const SizedBox(
                 height: 5,
               ),
               _buildSection(
+                context: context,
                 title: 'Fruits',
                 route: '/category/fruits',
-                products: provider.getCategory(ProductCategory.fruits),
+                products: provider,
+                controller: selectProvider,
+                category: ProductCategory.fruits,
               ),
               const SizedBox(
                 height: 5,
               ),
               _buildSection(
-                  title: 'Vegetables',
-                  route: '/category/vegetables',
-                  products: provider.getCategory(ProductCategory.vegetables)),
+                context: context,
+                title: 'Vegetables',
+                route: '/category/vegetables',
+                products: provider,
+                controller: selectProvider,
+                category: ProductCategory.vegetables,
+              ),
               const SizedBox(
                 height: 5,
               ),
               _buildSection(
+                context: context,
                 title: 'Beverages',
                 route: '/category/beverages',
-                products: provider.getCategory(ProductCategory.beverages),
+                products: provider,
+                category: ProductCategory.beverages,
+                controller: selectProvider,
+                minimum: 10,
               )
             ],
           ),
@@ -115,12 +131,16 @@ class ExploreScreen extends ConsumerWidget {
   }
 
   _buildSection({
+    required BuildContext context,
     required String title,
     required String route,
-    required List<Product> products,
+    required Products products,
+    required ProductCategory category,
+    required StateController<ProductCategory?> controller,
     int minimum = 4,
   }) {
-    return products.isEmpty
+    List<Product> productList = products.getCategory(category);
+    return productList.isEmpty
         ? const SizedBox()
         : SizedBox(
             child: Column(
@@ -140,7 +160,10 @@ class ExploreScreen extends ConsumerWidget {
                         animationDuration: Duration(milliseconds: 0),
                         splashFactory: NoSplash.splashFactory,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        controller.update((state) => category);
+                        Navigator.pushNamed(context, '/category');
+                      },
                       child: const Text(
                         'See all',
                       ),
@@ -157,11 +180,11 @@ class ExploreScreen extends ConsumerWidget {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (_, index) => ProductCard(
-                        product: products[index],
+                        product: productList[index],
                         isFirst: index == 0,
                       ),
                       shrinkWrap: true,
-                      itemCount: min(minimum, products.length),
+                      itemCount: min(minimum, productList.length),
                     ),
                   ),
                 )

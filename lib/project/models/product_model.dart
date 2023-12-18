@@ -54,11 +54,15 @@ enum WeightUnit {
 }
 
 enum ProductCategory {
-  exclusive,
-  fruits,
-  vegetables,
-  bakery,
-  beverages;
+  exclusive(title: "Exclusives"),
+  fruits(title: 'Fruits'),
+  vegetables(title: 'Vegetables'),
+  bakery(title: 'Bakeries'),
+  beverages(title: 'Beverages');
+
+  final String title;
+
+  const ProductCategory({required this.title});
 
   static ProductCategory? fromName(String name) {
     return ProductCategory.values

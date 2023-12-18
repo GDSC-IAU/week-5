@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:shopping_app/project/models/product_model.dart';
 
@@ -21,3 +22,7 @@ class Products extends _$Products {
         .toList();
   }
 }
+
+final categoryMenuProvider = StateProvider<ProductCategory?>(
+  (ref) => null,
+);
