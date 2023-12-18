@@ -6,4 +6,5 @@ class AppColors {
   static const background = Colors.white;
   static const bg0 = Color(0XFFF2F3F2);
   static const borderColor = Color(0xFFE2E2E2);
+  static const favoriteColor = Color(0xFFec1a38);
 }

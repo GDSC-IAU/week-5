@@ -3,9 +3,11 @@ import 'package:shopping_app/project/common/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final bool border;
 
   const CustomAppBar({
     required this.title,
+    this.border = false,
     super.key,
   });
 
@@ -16,6 +18,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       backgroundColor: AppColors.background,
       surfaceTintColor: Colors.transparent,
+      shape: border
+          ? const Border(bottom: BorderSide(color: AppColors.borderColor))
+          : null,
       actions: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
