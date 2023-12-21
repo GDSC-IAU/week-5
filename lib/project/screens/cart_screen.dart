@@ -6,6 +6,7 @@ import 'package:shopping_app/project/providers/cart_provider.dart';
 import 'package:shopping_app/project/widgets/app_bar.dart';
 import 'package:shopping_app/project/widgets/buttons/custom_button.dart';
 import 'package:shopping_app/project/widgets/cart_tile.dart';
+import 'package:shopping_app/project/widgets/modals/checkout_modal.dart';
 
 class CartScreen extends ConsumerWidget {
   const CartScreen({super.key});
@@ -21,7 +22,9 @@ class CartScreen extends ConsumerWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        child: cartItems.isNotEmpty ? _buildView(cartItems) : _buildEmptyView(),
+        child: cartItems.isNotEmpty
+            ? _buildView(context, cartItems)
+            : _buildEmptyView(),
       ),
     );
   }
@@ -35,7 +38,7 @@ class CartScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildView(Map<Product, int> products) {
+  Widget _buildView(BuildContext context, Map<Product, int> products) {
     return Stack(
       children: [
         ListView.builder(
@@ -61,9 +64,14 @@ class CartScreen extends ConsumerWidget {
           alignment: Alignment.bottomCenter,
           padding: const EdgeInsets.all(15),
           child: CustomButton(
-            onPressed: () {},
-            title: 'Go to Checkout'
-          ),
+              onPressed: () {
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) => const CheckoutModal(),
+                );
+              },
+              title: 'Go to Checkout'),
         ),
       ],
     );

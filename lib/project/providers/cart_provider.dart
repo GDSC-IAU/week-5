@@ -39,4 +39,8 @@ class Cart extends _$Cart {
   bool hasItem(Product product) {
     return state.containsKey(product);
   }
+
+  void clear() {
+    state = {};
+  }
 }

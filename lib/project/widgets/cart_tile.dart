@@ -64,7 +64,6 @@ class CartTile extends ConsumerWidget {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
-            
           ),
         ),
         Text(
@@ -73,7 +72,6 @@ class CartTile extends ConsumerWidget {
             color: Colors.grey,
             fontWeight: FontWeight.w600,
             fontSize: 14,
-            
           ),
         ),
         kH(15),
@@ -102,7 +100,6 @@ class CartTile extends ConsumerWidget {
           style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            
           ),
         ),
       ],
