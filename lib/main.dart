@@ -20,6 +20,7 @@ class MainApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
+      title: "Shopping App",
       debugShowCheckedModeBanner: false,
       home: ref.watch(productsProvider).when(
             data: (_) {

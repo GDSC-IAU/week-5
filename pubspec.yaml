@@ -10,7 +10,6 @@ dependencies:
     flutter:
         sdk: flutter
     flutter_riverpod: ^2.4.9
-    google_fonts:
     riverpod_annotation: ^2.3.3
     styled_text: ^8.1.0
 
