@@ -43,11 +43,10 @@ class PlacedOrderScreen extends StatelessWidget {
           ),
           kH(20),
           const Text(
-            'Your items has been placcd and is on it’s way to being processed',
+            'Your items has been placed and is on it’s way to being processed',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
-              fontWeight: FontWeight.normal,
               color: AppColors.unselectedFavoriteColor,
             ),
           ),
