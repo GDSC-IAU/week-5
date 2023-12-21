@@ -26,3 +26,7 @@ class Products extends _$Products {
 final categoryMenuProvider = StateProvider<ProductCategory?>(
   (ref) => null,
 );
+
+final selectedProductProvider = StateProvider<Product?>(
+  (ref) => null,
+);

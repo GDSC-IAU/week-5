@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shopping_app/project/common/colors.dart';
+import 'package:shopping_app/project/common/functions.dart';
 import 'package:shopping_app/project/models/product_model.dart';
 import 'package:shopping_app/project/providers/product_provider.dart';
 import 'package:shopping_app/project/widgets/app_bar.dart';
@@ -26,13 +27,9 @@ class ExploreScreen extends ConsumerWidget {
           child: Column(
             children: [
               _buildSearchBar(),
-              const SizedBox(
-                height: 20,
-              ),
+              kH(20),
               _buildBanner(),
-              const SizedBox(
-                height: 5,
-              ),
+              kH(5),
               _buildSection(
                 context: context,
                 title: 'Exclusive Offer',
@@ -41,9 +38,7 @@ class ExploreScreen extends ConsumerWidget {
                 controller: selectProvider,
                 category: ProductCategory.exclusive,
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              kH(5),
               _buildSection(
                 context: context,
                 title: 'Fruits',
@@ -52,9 +47,7 @@ class ExploreScreen extends ConsumerWidget {
                 controller: selectProvider,
                 category: ProductCategory.fruits,
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              kH(5),
               _buildSection(
                 context: context,
                 title: 'Vegetables',
@@ -63,9 +56,7 @@ class ExploreScreen extends ConsumerWidget {
                 controller: selectProvider,
                 category: ProductCategory.vegetables,
               ),
-              const SizedBox(
-                height: 5,
-              ),
+              kH(5),
               _buildSection(
                 context: context,
                 title: 'Beverages',
@@ -170,9 +161,7 @@ class ExploreScreen extends ConsumerWidget {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                kH(20),
                 SizedBox(
                   height: 250,
                   child: SingleChildScrollView(

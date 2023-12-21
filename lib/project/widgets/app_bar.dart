@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:shopping_app/project/common/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
+  final String? title;
   final bool border;
+  final bool cartIcon;
+  final Color background;
 
   const CustomAppBar({
-    required this.title,
+    this.title,
     this.border = false,
+    this.cartIcon = true,
+    this.background = AppColors.background,
     super.key,
   });
 
@@ -16,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       elevation: 0,
-      backgroundColor: AppColors.background,
+      backgroundColor: background,
       surfaceTintColor: Colors.transparent,
       shape: border
           ? const Border(bottom: BorderSide(color: AppColors.borderColor))
@@ -24,19 +28,23 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: IconButton(
-            icon: const Icon(Icons.shopping_cart_outlined),
-            onPressed: () {},
-          ),
+          child: cartIcon
+              ? IconButton(
+                  icon: const Icon(Icons.shopping_cart_outlined),
+                  onPressed: () {},
+                )
+              : null,
         )
       ],
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
+      title: title == null
+          ? null
+          : Text(
+              title!,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
     );
   }
 
