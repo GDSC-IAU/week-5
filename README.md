@@ -1,7 +1,7 @@
 # Week 5: Introduction to Pub.dev/Page Navigation
 ## Overview
 
-The simplest way to buy for your fresh products, like fruits, vegetables, bakeries and so more.
+The simplest way to buy your fresh products, like fruits, vegetables, bakeries and so more.
 
 ## Dependencies
 - flutter_riverpod: ^2.4.9
