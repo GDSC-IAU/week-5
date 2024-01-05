@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget bodyContainer() {
     switch (selectedPos) {
       case 0:
-        return HomeScreen();
+        return const HomeScreen();
       case 1:
         return const CartScreen();
       case 2:

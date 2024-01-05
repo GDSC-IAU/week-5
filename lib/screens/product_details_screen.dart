@@ -20,6 +20,8 @@ class ProductDetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
+            //product image
             Image.asset(
               product.imageUrl,
               width: 200,
@@ -27,6 +29,8 @@ class ProductDetailsScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 16),
+
+            //product name
             Text(
               product.name,
               style: const TextStyle(
@@ -34,9 +38,21 @@ class ProductDetailsScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+
+            //product id
             const SizedBox(height: 8),
             Text(
               'ID: ${product.id}',
+              style: const TextStyle(
+                fontSize: 16,
+                color: Colors.grey,
+              ),
+            ),
+
+
+            //description
+            Text(
+              product.description,
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.grey,
