@@ -1,61 +1,62 @@
-
 import '../models/product.dart';
 
 List<Product> allProducts = [
-    Product(
-      id: 1,
-      name: 'Florida Moonlight caladium',
-      imageUrl: 'lib/assets/Florida_Moonlight_caladium.jpg',
-      price: 130.00,
-      description:
-          'Florida Moonlight caladiums are a fancy-leaved variety with large, heart-shaped leaves that are primarily white with green veins and green edges. They are a great choice for shady areas of the garden where their bright foliage will add a burst of color. They also make a great houseplant.',
-    ),
-    Product(
-      id: 2,
-      name: 'Layla',
-      imageUrl: 'lib/assets/Layla.jpg',
-      price: 100.00,
-      description:
-          'Layla is a fancy-leaved variety with large, heart-shaped leaves that are primarily white with green veins and green edges. They are a great choice for shady areas of the garden where their bright foliage will add a burst of color. They also make a great houseplant.',
-    ),
-    Product(
-      id: 3,
-      name: 'Monstera',
-      imageUrl: 'lib/assets/monstera.jpg',
-      price: 150.00,
-      description:
-          'Monstera is a tropical plant with large, distinctive leaves known for their unique splits and holes. This popular houseplant is not only aesthetically pleasing but also easy to care for, making it a favorite among plant enthusiasts.',
-    ),
-    Product(
-      id: 4,
-      name: 'Pachira',
-      imageUrl: 'lib/assets/Pachira.jpg',
-      price: 100.00,
-      description:
-          'Pachira, commonly known as the Money Tree, is believed to bring good luck and prosperity. With its braided trunk and vibrant green leaves, it makes for a charming and meaningful addition to any home or office.',
-    ),
-    Product(
-      id: 5,
-      name: 'Pennywort',
-      imageUrl: 'lib/assets/pennywort.jpg',
-      price: 30.00,
-      description:
-          'Pennywort is a low-growing herb with round, coin-shaped leaves that add a unique and enchanting touch to your garden or indoor space. Known for its adaptability and ground-covering nature, Pennywort is a versatile and delightful plant.',
-    ),
-    Product(
-      id: 6,
-      name: 'Philodendron',
-      imageUrl: 'lib/assets/philodendron.jpg',
-      price: 125.00,
-      description:
-          'Philodendron is a classic houseplant with glossy, heart-shaped leaves. Its trailing vines and easy-care nature make it a popular choice for both beginners and experienced plant enthusiasts. Add a touch of greenery and elegance to your space with Philodendron.',
-    ),
-    Product(
-      id: 7,
-      name: 'Pilea',
-      imageUrl: 'lib/assets/Pilea.jpg',
-      price: 23.00,
-      description:
-          'Pilea, also known as the "Chinese Money Plant" or "Pancake Plant," is characterized by its round, flat leaves on delicate stems. This modern and stylish plant is compact in size, making it a perfect choice for tabletops and shelves.',
-    ),
-  ];
+  Product(
+    id: 1,
+    name: 'Aloe Vera',
+    imageUrl: 'lib/assets/Aloe_Vera.jpg',
+    price: 19.99,
+    description:
+        'Aloe Vera is a succulent plant known for its medicinal properties. The gel inside its thick, fleshy leaves is widely used to soothe burns, heal wounds, and provide various skincare benefits.',
+  ),
+  Product(
+    id: 2,
+    name: 'Calathea Freddie',
+    imageUrl: 'lib/assets/Calathea_Freddie.jpg',
+    price: 29.99,
+    description:
+        'Calathea Freddie is a stunning houseplant with broad, patterned leaves. It\'s prized for its unique foliage, featuring intricate patterns and vibrant colors. Perfect for adding a touch of elegance to your indoor space.',
+  ),
+  Product(
+    id: 3,
+    name: 'Echeveria',
+    imageUrl: 'lib/assets/Echeveria.jpg',
+    price: 24.99,
+    description:
+        'Echeveria is a beautiful succulent known for its rosette-shaped arrangement of leaves. With a variety of colors and forms, Echeverias are popular choices for succulent gardens and container arrangements.',
+  ),
+  Product(
+    id: 4,
+    name: 'Haworthia Zebra',
+    imageUrl: 'lib/assets/Haworthia_Zebra.jpg',
+    price: 14.99,
+    description:
+        'Haworthia Zebra is a small, striking succulent with distinctive zebra-like stripes on its leaves. It\'s easy to care for and makes a charming addition to any succulent collection or windowsill.',
+  ),
+  Product(
+  id: 5,
+  name: 'Pennywort',
+  imageUrl: 'lib/assets/pennywort.jpg',
+  price: 30.00,
+  description:
+      'Pennywort is a charming, low-growing herb with coin-shaped leaves. Its whimsical appearance and adaptability make it a delightful addition to gardens or indoor spaces. Easy to care for, it adds a unique touch to your green collection.'
+  ),
+
+
+  Product(
+    id: 6,
+    name: 'Pothos Jade',
+    imageUrl: 'lib/assets/Pothos_Jade.jpg',
+    price: 18.99,
+    description:
+        'Pothos Jade, also known as Devil\'s Ivy, is a versatile and resilient trailing plant. With its heart-shaped leaves, it thrives in various light conditions and is an excellent choice for hanging baskets or cascading down shelves.',
+  ),
+  Product(
+    id: 7,
+    name: 'ZZ Plant',
+    imageUrl: 'lib/assets/ZZ_Plant.jpg',
+    price: 22.99,
+    description:
+        'ZZ Plant, or Zamioculcas Zamiifolia, is a hardy and low-maintenance houseplant. Its glossy, dark green leaves add a touch of modern elegance to any space. ZZ Plants are known for their air-purifying qualities and adaptability.',
+  ),
+];

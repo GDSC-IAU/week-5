@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/cart_provider.dart';
+
+import 'models/product.dart';
+
+import '../data/product_data.dart';
 
 import 'screens/home_screen.dart';
 import 'screens/cart_screen.dart';
 import 'screens/profile_screen.dart';
 
+
+
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CartProvider()),
+        Provider<List<Product>>(create: (_) => allProducts),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -46,25 +63,30 @@ class _MyHomePageState extends State<MyHomePage> {
     TabItem(
       Icons.home,
       "Home",
-      Colors.grey ,
+      const Color(0xFF618264),
       labelStyle: const TextStyle(
-        fontWeight: FontWeight.normal,
+        color: Color(0xFF618264),
+        fontWeight: FontWeight.bold,
       ),
     ),
     TabItem(
       Icons.shopping_cart,
       "Cart",
-      Colors.grey ,
+      const Color(0xFF618264),
       labelStyle: const TextStyle(
-        color: Colors.white,
+        color: Color(0xFF618264),
         fontWeight: FontWeight.bold,
       ),
     ),
     TabItem(
       Icons.person,
       "Profile",
-      Colors.grey ,
+      const Color(0xFF618264),
       circleStrokeColor: Colors.white,
+      labelStyle: const TextStyle(
+        color: Color(0xFF618264),
+        fontWeight: FontWeight.bold,
+      ),
     ),
   ]);
 
