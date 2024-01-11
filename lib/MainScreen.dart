@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/Pages/cartPage.dart';
+import 'package:shopping_app/Pages/homePage.dart';
+
 // Import all of the pages that we want to navigate to
 // ...............
 
@@ -10,41 +13,11 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final List<Widget> _pages = [
+  final _pages = [
     // Add all of the pages that we want to navigate to
     // ...............
-    Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: const Center(
-        child: Text('Home'),
-      ),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        title: const Text('Search'),
-      ),
-      body: const Center(
-        child: Text('Search'),
-      ),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        title: const Text('Cart'),
-      ),
-      body: const Center(
-        child: Text('Cart'),
-      ),
-    ),
-    Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-      ),
-      body: const Center(
-        child: Text('Profile'),
-      ),
-    ),
+    const HomePage(),
+    const CartPage()
   ];
 
   // Create a variable to keep track of the current page
@@ -79,23 +52,9 @@ class _MainScreenState extends State<MainScreen> {
           // Create a bottom navigation bar item
           BottomNavigationBarItem(
             // Set the icon of the item
-            icon: Icon(Icons.search),
-            // Set the label of the item
-            label: 'Search',
-          ),
-          // Create a bottom navigation bar item
-          BottomNavigationBarItem(
-            // Set the icon of the item
             icon: Icon(Icons.shopping_cart),
             // Set the label of the item
             label: 'Cart',
-          ),
-          // Create a bottom navigation bar item
-          BottomNavigationBarItem(
-            // Set the icon of the item
-            icon: Icon(Icons.person),
-            // Set the label of the item
-            label: 'Profile',
           ),
         ],
         // Set the action that happens when an item is pressed
