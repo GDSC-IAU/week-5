@@ -10,18 +10,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Our Products'), centerTitle: true),
-      body: _buildAllProducts(),
-    );
+        appBar: AppBar(title: const Text('Our Products'), centerTitle: true),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: _buildAllProducts(),
+        ));
   }
 }
 
 _buildAllProducts() => GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: (100 / 140),
+        childAspectRatio: (100 / 130),
         crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
       ),
       scrollDirection: Axis.vertical,
       itemCount: ProductsList.allProducts.length,

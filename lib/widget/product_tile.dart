@@ -12,7 +12,10 @@ class ProductTile extends StatefulWidget {
 class _ProductTileState extends State<ProductTile> {
   @override
   Widget build(BuildContext context) {
+    double containerWidth = MediaQuery.of(context).size.width / 2;
     return Container(
+      margin: EdgeInsets.all(0),
+      padding: EdgeInsets.all(0),
       width: MediaQuery.of(context).size.width / 2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
@@ -22,14 +25,29 @@ class _ProductTileState extends State<ProductTile> {
         children: [
           SizedBox(
             height: 130,
-            width: 130,
+            width: containerWidth,
             child: Image.asset(
               widget.product0.image,
               fit: BoxFit.cover,
             ),
           ),
-          Text(widget.product0.name),
-          Text('\$' '${widget.product0.price}'),
+          Expanded(
+            child: Container(
+              color: Colors.white,
+              padding: EdgeInsets.all(8),
+              width: containerWidth,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(widget.product0.name),
+                  Text(
+                    '\$${widget.product0.price}',
+                    style: TextStyle(color: Color.fromARGB(255, 43, 102, 46)),
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
