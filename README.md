@@ -12,6 +12,6 @@ a simple E-Commerce app using flutter. The app use's the provider library for st
 
 ## Screenshots
 
-<img src="readmeAssets/homePage.jpeg" width="300"  alt="ui">  <img src="images/Ui.jpeg" width="300"  alt="ui">
-<img src="readmeAssets/detailsPage.jpeg" width="300"  alt="ui">  <img src="images/Ui.jpeg" width="300"  alt="ui">
-<img src="readmeAssets/cartPage.jpeg" width="300"  alt="ui">  <img src="images/Ui.jpeg" width="300"  alt="ui">
+<img src="readmeAssets/homePage.jpeg" width="300"  alt="ui">  
+<img src="readmeAssets/detailsPage.jpeg" width="300"  alt="ui"> 
+<img src="readmeAssets/cartPage.jpeg" width="300"  alt="ui"> 
