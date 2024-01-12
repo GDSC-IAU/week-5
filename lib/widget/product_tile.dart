@@ -14,12 +14,12 @@ class _ProductTileState extends State<ProductTile> {
   Widget build(BuildContext context) {
     double containerWidth = MediaQuery.of(context).size.width / 2;
     return Container(
-      margin: EdgeInsets.all(0),
-      padding: EdgeInsets.all(0),
+      margin: const EdgeInsets.all(0),
+      padding: const EdgeInsets.all(0),
       width: MediaQuery.of(context).size.width / 2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
-        color: Color.fromARGB(255, 65, 65, 65).withOpacity(0.1),
+        color: const Color.fromARGB(255, 65, 65, 65).withOpacity(0.1),
       ),
       child: Column(
         children: [
@@ -34,7 +34,7 @@ class _ProductTileState extends State<ProductTile> {
           Expanded(
             child: Container(
               color: Colors.white,
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               width: containerWidth,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +42,7 @@ class _ProductTileState extends State<ProductTile> {
                   Text(widget.product0.name),
                   Text(
                     '\$${widget.product0.price}',
-                    style: TextStyle(color: Color.fromARGB(255, 43, 102, 46)),
+                    style: const TextStyle(color: Color.fromARGB(255, 43, 102, 46)),
                   ),
                 ],
               ),

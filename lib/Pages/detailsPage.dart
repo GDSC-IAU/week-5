@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_app/models/product.dart';
-import 'package:shopping_app/Pages/homePage.dart';
 
 class DetailsPage extends StatelessWidget {
   final product;
-  const DetailsPage({Key? key, required this.product}) : super(key: key);
+  const DetailsPage({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
+    //CartProvider cartProvider = CartProvider.of<CartProvider>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(product.name),
@@ -16,7 +15,7 @@ class DetailsPage extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
       ),
       body: Column(
         children: [
@@ -27,16 +26,16 @@ class DetailsPage extends StatelessWidget {
                 height: 330,
                 decoration: BoxDecoration(
                     shape: BoxShape.rectangle,
-                    color: Color.fromARGB(255, 65, 65, 65).withOpacity(0.1)),
+                    color: const Color.fromARGB(255, 65, 65, 65).withOpacity(0.1)),
                 child: Image.asset(product.image, fit: BoxFit.cover),
               )
             ],
           ),
           Container(
-            padding: EdgeInsets.all(30),
+            padding: const EdgeInsets.all(30),
             width: MediaQuery.of(context).size.width,
             height: 400,
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: const BoxDecoration(color: Colors.white),
             child: Column(
               children: [
                 Row(
@@ -44,11 +43,11 @@ class DetailsPage extends StatelessWidget {
                   children: [
                     Text(
                       product.name,
-                      style: TextStyle(fontSize: 22),
+                      style: const TextStyle(fontSize: 22),
                     ),
                     Text(
                       '\$ ' '${product.price}',
-                      style: TextStyle(fontSize: 20),
+                      style: const TextStyle(fontSize: 20),
                     )
                   ],
                 ),
@@ -66,14 +65,14 @@ class DetailsPage extends StatelessWidget {
                 Container(
                   width: double.infinity, // Full width of the container
                   padding:
-                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                      const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Color.fromARGB(255, 43, 102, 46),
+                          backgroundColor: const Color.fromARGB(255, 43, 102, 46),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
                       onPressed: () {
-                        print('button cliced add');
+                        //provider.toggleProduct(product);
                       },
                       child: const Text(
                         'Add to Cart',
