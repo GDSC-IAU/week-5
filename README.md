@@ -2,7 +2,7 @@
 
 ## Project Overview
 a simple E-Commerce app using flutter. The app use's the provider library for state management.
-
+The UI of the app was inspired by a design available on Figma at https://www.figma.com/community/file/1057288219093151235.
 
 ## Features
 
