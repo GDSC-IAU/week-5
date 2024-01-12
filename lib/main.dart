@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_app/MainScreen.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_app/Pages/cartPage.dart';
 import 'package:shopping_app/providers/cart_provider.dart';
 
 void main() {
-  ChangeNotifierProvider(
-    create: (context) => CartProvider(),
-    child: const MainApp(),
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => CartProvider(),
+      child: const MainApp(),
+    ),
   );
 }
 
@@ -21,6 +24,7 @@ class MainApp extends StatelessWidget {
       home: const MainScreen(),
       routes: {
         "/main": (context) => const MainScreen(),
+        '/cart': (context) => const CartPage(),
       },
     );
   }

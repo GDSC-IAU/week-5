@@ -29,8 +29,10 @@ _buildAllProducts() => GridView.builder(
         final allProduct = ProductsList.allProducts[index];
         return GestureDetector(
           onTap: () => Navigator.push(
+              // Navigator.push
               context,
               MaterialPageRoute(
+                  //use a MaterialPageRoute
                   builder: (context) => DetailsPage(product: allProduct))),
           child: ProductTile(product0: allProduct),
         );
