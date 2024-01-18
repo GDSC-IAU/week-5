@@ -3,9 +3,9 @@ import 'package:animation_search_bar/animation_search_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../models/product.dart';
-import '../screens/product_details_screen.dart';
 import '../data/product_data.dart';
 import './widgets/AdBox.dart';
+import './widgets/categorySelector.dart';
 import './widgets/CategoryListView.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,11 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
   late List<String> categories;
   late List<Product> displayedProducts = allProducts;
   final TextEditingController controller = TextEditingController();
+  List<String> selectedCategories = [];
 
   @override
   void initState() {
     super.initState();
-    categories = allProducts.map((product) => product.category).toSet().toList();
+    categories =
+        allProducts.map((product) => product.category).toSet().toList();
   }
 
   void _performSearch(String query) {
@@ -32,6 +34,19 @@ class _HomeScreenState extends State<HomeScreen> {
           .where((product) =>
               product.name.toLowerCase().contains(query.toLowerCase()))
           .toList();
+    });
+  }
+
+  void _onCategoriesSelected(List<String> selectedCategories) {
+    setState(() {
+      this.selectedCategories = selectedCategories;
+      if (selectedCategories.isNotEmpty) {
+        displayedProducts = allProducts
+            .where((product) => selectedCategories.contains(product.category))
+            .toList();
+      } else {
+        displayedProducts = allProducts;
+      }
     });
   }
 
@@ -67,26 +82,27 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             AdBox(),
-            for (String category in categories)
-              ExpansionTile(
-                initiallyExpanded: true,
-                title: Text(
-                  category,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Color(0xFF618264),
-                  ),
-                ),
-                children: [
-                  CategoryListView(
-                    category: category,
-                    categoryProducts: allProducts
-                        .where((product) => product.category == category)
-                        .toList(),
-                  ),
-                ],
+            Text(
+              'Our Plants',
+              style: GoogleFonts.lato(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: const Color(0xFF618264),
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CategorySelector(
+                allCategories: categories,
+                onCategoriesSelected: _onCategoriesSelected,
+              ),
+            ),
+            // Display products based on selectedCategories
+            CategoryListView(
+              category:
+                  selectedCategories.isNotEmpty ? selectedCategories.first : '',
+              categoryProducts: displayedProducts,
+            ),
           ],
         ),
       ),

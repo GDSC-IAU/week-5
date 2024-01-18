@@ -6,7 +6,11 @@ class CategoryListView extends StatelessWidget {
   final String category;
   final List<Product> categoryProducts;
 
-  CategoryListView({required this.category, required this.categoryProducts});
+  const CategoryListView({
+    Key? key,
+    required this.category,
+    required this.categoryProducts,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
