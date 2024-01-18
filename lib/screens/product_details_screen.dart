@@ -17,7 +17,7 @@ class ProductDetailsScreen extends StatelessWidget {
 @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFD0E7D2),
+      backgroundColor: const Color(0xFFFAF3F0),
       appBar: AppBar(
         title: Text(
                 product.name,

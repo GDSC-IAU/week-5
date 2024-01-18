@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../models/product.dart';
 import '../screens/product_details_screen.dart';
 import '../data/product_data.dart';
+import './widgets/AdBox.dart';
+import './widgets/CategoryListView.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -36,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFD0E7D2),
+      backgroundColor: const Color(0xFFFAF3F0),
       appBar: AppBar(
         toolbarHeight: 100,
         title: AnimationSearchBar(
@@ -61,92 +63,32 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         backgroundColor: const Color(0xFF618264),
       ),
-      body: ListView.builder(
-        itemCount: categories.length,
-        itemBuilder: (context, index) {
-          final category = categories[index];
-          final categoryProducts =
-              allProducts.where((product) => product.category == category).toList();
-
-          return ExpansionTile(
-            initiallyExpanded: true,
-
-            title: Text(
-              category,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Color(0xFF618264),
-              ),
-            ),
-            children: [
-              Container(
-                height: 200,
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categoryProducts.length,
-                  itemBuilder: (context, index) {
-                    final product = categoryProducts[index];
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                ProductDetailsScreen(product: product),
-                          ),
-                        );
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: 150,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: Colors.white,
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black12,
-                                offset: Offset(0, 2),
-                                blurRadius: 6.0,
-                              ),
-                            ],
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Expanded(
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  child: Image.asset(
-                                    product.imageUrl,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(
-                                  product.name,
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16,
-                                    color: Color(0xFF618264),
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            AdBox(),
+            for (String category in categories)
+              ExpansionTile(
+                initiallyExpanded: true,
+                title: Text(
+                  category,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Color(0xFF618264),
+                  ),
                 ),
+                children: [
+                  CategoryListView(
+                    category: category,
+                    categoryProducts: allProducts
+                        .where((product) => product.category == category)
+                        .toList(),
+                  ),
+                ],
               ),
-            ],
-          );
-        },
+          ],
+        ),
       ),
     );
   }

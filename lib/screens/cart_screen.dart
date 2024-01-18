@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
     var allProducts = Provider.of<List<Product>>(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFD0E7D2),
+      backgroundColor: const Color(0xFFFAF3F0),
       appBar: AppBar(
         title: Center(
           child: Text(
