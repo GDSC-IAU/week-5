@@ -82,22 +82,26 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             AdBox(),
-            Text(
-              'Our Plants',
-              style: GoogleFonts.lato(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: const Color(0xFF618264),
-              ),
-            ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CategorySelector(
-                allCategories: categories,
-                onCategoriesSelected: _onCategoriesSelected,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Our Plants',
+                    style: GoogleFonts.lato(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: const Color(0xFF618264),
+                    ),
+                  ),
+                  CategorySelector(
+                    allCategories: categories,
+                    onCategoriesSelected: _onCategoriesSelected,
+                  ),
+                ],
               ),
             ),
-            // Display products based on selectedCategories
             CategoryListView(
               category:
                   selectedCategories.isNotEmpty ? selectedCategories.first : '',
