@@ -1,16 +1,14 @@
-// screens/cart_screen.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/cart_provider.dart';
 import '../models/product.dart';
-import 'widgets/totalPrice.dart'; 
+import 'widgets/totalPrice.dart';
 
 class CartScreen extends StatelessWidget {
   static const routeName = '/cart';
 
-  // ignore: use_key_in_widget_constructors
   const CartScreen({Key? key});
 
   @override
@@ -39,24 +37,29 @@ class CartScreen extends StatelessWidget {
           var cartItem = cartProvider.items[index];
 
           if (cartItem == null) {
-            return const SizedBox.shrink(); 
+            return const SizedBox.shrink();
           }
 
-
-          var product = allProducts.firstWhere((product) => product.id == cartItem.productId);
-
+          var product = allProducts
+              .firstWhere((product) => product.id == cartItem.productId);
 
           String itemName = product.name;
           double itemPrice = product.price;
           int itemQuantity = cartItem.quantity;
 
           return ListTile(
+            leading: Image.asset(
+              product.imageUrl,
+              width: 50,
+              height: 50,
+              fit: BoxFit.cover,
+            ),
             title: Text('$itemName (Qty: $itemQuantity)'),
             subtitle: Text('\$${itemPrice.toString()}'),
           );
         },
       ),
-      bottomSheet: CartTotal(), // Use the CartTotal widget here
+      bottomSheet: CartTotal(),
     );
   }
 }

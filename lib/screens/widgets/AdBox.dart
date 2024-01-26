@@ -7,7 +7,7 @@ class AdBox extends StatefulWidget {
 
 class _AdBoxState extends State<AdBox> {
   final List<String> adImages = [
-    'lib/assets/ad-1.png',
+    'lib/assets/ad-1.jpg',
     'lib/assets/ad-2.png',
     'lib/assets/ad-3.png',
   ];
@@ -20,6 +20,9 @@ class _AdBoxState extends State<AdBox> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         height: 200, // Adjust the height as needed
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15.0), // Adjust the radius as needed
+        ),
         child: PageView.builder(
           itemCount: adImages.length,
           onPageChanged: (index) {
@@ -34,6 +37,7 @@ class _AdBoxState extends State<AdBox> {
               },
               child: Container(
                 decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15.0), // Adjust the radius as needed
                   image: DecorationImage(
                     image: AssetImage(adImages[index]),
                     fit: BoxFit.cover,
