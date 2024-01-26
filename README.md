@@ -19,7 +19,7 @@ Planty is a Flutter application showcasing a collection of plants with details a
 ![Home Screen](readmeAssets/HomeScreen.png)
 ![Profile Screen](readmeAssets/ProfileScreen.png)
 ![Cart Screen](readmeAssets/CartScreen.png)
-![Plant Details Screen](readmeAssets/ProductScreen.png.png)
+![Plant Details Screen](readmeAssets/ProductScreen.png)
 
 ## Getting Started
 These instructions will help you set up and run the Planty app on your local machine.
